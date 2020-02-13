@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  released_at: 2020-02-12 19:10:06
+  artist_name: MyString
+  rating: 1.5
+
+two:
+  title: MyString
+  released_at: 2020-02-12 19:10:06
+  artist_name: MyString
+  rating: 1.5

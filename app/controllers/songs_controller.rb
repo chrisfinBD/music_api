@@ -3,6 +3,7 @@ class SongsController < ApplicationController
 
   # GET /songs
   def index
+    response.headers["Access-Control-Allow-Origin"] = "*"
     @songs = Song.all
 
     render json: @songs
@@ -26,6 +27,8 @@ class SongsController < ApplicationController
 
   # PATCH/PUT /songs/1
   def update
+    #binding.irb
+    #puts request.raw_post
     if @song.update(song_params)
       render json: @song
     else
@@ -41,11 +44,14 @@ class SongsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
+      #puts params
       @song = Song.find(params[:id])
+      #binding.irb
     end
 
     # Only allow a trusted parameter "white list" through.
     def song_params
-      params.require(:song).permit(:title, :released_at, :artist_name, :rating)
+      #puts params.inspect
+      params.require(:song).permit(:title, :released_at, :artist_name, :rating, :song)
     end
 end
